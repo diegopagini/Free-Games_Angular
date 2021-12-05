@@ -12,7 +12,7 @@ export const environment = {
     messagingSenderId: '89624462424',
   },
   production: false,
-  baseUrl: 'https://www.freetogame.com/api/games',
+  baseUrl: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
 };
 
 /*

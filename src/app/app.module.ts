@@ -8,32 +8,47 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import {
+  provideAnalytics,
+  getAnalytics,
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiInterceptor } from './core/interceptors/api.interceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService,
+    UserTrackingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
