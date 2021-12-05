@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "free-games-angular": {
+      "hosting": {
+        "games": [
+          "free-games-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "free-games-angular"
+  }
+}
