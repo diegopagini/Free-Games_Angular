@@ -1,0 +1,11 @@
+$color-dark: #2a2e33;
+$color-black: #1c1e22;
+$color-white: #fff;
+$color-primary: #7a8288;
+$color-secondary: #4799eb;
+
+@mixin center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

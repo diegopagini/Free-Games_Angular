@@ -20,6 +20,9 @@ import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api.interceptor';
+import { ComponentsModule } from './shared/components/components.module';
+
+const modules = [ComponentsModule];
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +30,7 @@ import { ApiInterceptor } from './core/interceptors/api.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ...modules,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
