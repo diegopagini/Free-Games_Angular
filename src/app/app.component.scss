@@ -1,4 +1,8 @@
+@import "./core/styles/base";
+
 .container {
+  background-color: $color-dark;
+  color: $color-white;
   min-height: calc(100vh - 112px);
 
   @media (min-width: 991px) {

@@ -21,6 +21,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api.interceptor';
 import { ComponentsModule } from './shared/components/components.module';
+import { apiReducer } from './core/store/reducers/api.reducer';
+import { GamesEffect } from './core/store/effects/api.effect';
 
 const modules = [ComponentsModule];
 
@@ -31,12 +33,12 @@ const modules = [ComponentsModule];
     AppRoutingModule,
     HttpClientModule,
     ...modules,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ app: apiReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([GamesEffect]),
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),

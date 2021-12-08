@@ -1,0 +1,8 @@
+@import "../../../core/styles/base";
+
+.loading {
+  height: 100%;
+  min-height: 75vh;
+  width: 100%;
+  @include center;
+}
