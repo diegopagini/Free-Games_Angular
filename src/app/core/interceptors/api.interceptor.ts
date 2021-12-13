@@ -20,7 +20,7 @@ export class ApiInterceptor implements HttpInterceptor {
     const apiReq = request.clone({
       headers: new HttpHeaders({
         'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
-        'x-rapidapi-key': 'd99a1ff4e6mshfb69f767e8785f8p1869b2jsn979bac3942ac',
+        'x-rapidapi-key': `${environment.apiKey}`,
       }),
       url: `${environment.baseUrl}${request.url}`,
     });

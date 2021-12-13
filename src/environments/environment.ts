@@ -3,15 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  firebase: {
-    projectId: 'free-games-angular',
-    appId: '1:89624462424:web:a9e3b1a3cca2e58645762d',
-    storageBucket: 'free-games-angular.appspot.com',
-    apiKey: 'AIzaSyB_IIh5ASGNIxVIdsGCO7Wewu2dp0udVeI',
-    authDomain: 'free-games-angular.firebaseapp.com',
-    messagingSenderId: '89624462424',
-  },
   production: false,
+  apiKey: 'd99a1ff4e6mshfb69f767e8785f8p1869b2jsn979bac3942ac',
   baseUrl: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
 };
 
