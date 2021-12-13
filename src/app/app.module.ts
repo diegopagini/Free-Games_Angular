@@ -8,23 +8,18 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import {
-  provideAnalytics,
-  getAnalytics,
   ScreenTrackingService,
   UserTrackingService,
 } from '@angular/fire/analytics';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideDatabase, getDatabase } from '@angular/fire/database';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api.interceptor';
-import { ComponentsModule } from './shared/components/components.module';
 import { apiReducer } from './core/store/reducers/api.reducer';
 import { GamesEffect } from './core/store/effects/api.effect';
+import { ComponentsModule } from './core/components/components.module';
+import { SharedComponentsModule } from './shared/components/components.module';
 
-const modules = [ComponentsModule];
+const modules = [ComponentsModule, SharedComponentsModule];
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,19 +27,18 @@ const modules = [ComponentsModule];
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    // Components
     ...modules,
+    // Root Reducer
     StoreModule.forRoot({ app: apiReducer }),
+    // Store DevTools
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
+    // Root Effect
     EffectsModule.forRoot([GamesEffect]),
-    BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics()),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
   ],
   providers: [
     ScreenTrackingService,

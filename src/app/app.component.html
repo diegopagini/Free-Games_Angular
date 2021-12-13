@@ -1,6 +1,6 @@
 <app-header></app-header>
-<div class="container">
+<section class="container">
   <router-outlet *ngIf="!(loading$ | async)"></router-outlet>
   <app-spinner *ngIf="loading$ | async"></app-spinner>
-</div>
+</section>
 <app-footer></app-footer>
