@@ -1,0 +1,5 @@
+<ng-container *ngIf="gameList$ | async as games">
+  <section class="game-list">
+    <app-game *ngFor="let game of games" [game]="game"></app-game>
+  </section>
+</ng-container>

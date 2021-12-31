@@ -1,5 +1,12 @@
 @import "../../../styles/base";
+@import "../../../styles/animations";
 
 .header {
   background-color: $color-black;
+  color: $color-white;
+  @include center;
+
+  h2 {
+    text-transform: uppercase;
+  }
 }
