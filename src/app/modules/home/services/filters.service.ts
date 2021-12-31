@@ -10,6 +10,10 @@ export class FiltersService {
       name: 'Platform',
       options: [
         {
+          name: 'All Platforms',
+          value: 'All Platforms',
+        },
+        {
           name: 'Windwos (PC)',
           value: 'Windwos (PC)',
         },
@@ -17,18 +21,34 @@ export class FiltersService {
           name: 'Browser (WEB)',
           value: 'Browser (WEB)',
         },
-        {
-          name: 'All Platforms',
-          value: 'All Platforms',
-        },
       ],
     },
     {
       name: 'Genre/Tag',
       options: [
         {
-          name: 'Windwos (PC)',
-          value: 'Windwos (PC)',
+          name: 'All Genres',
+          value: 'All Genres',
+        },
+        {
+          name: 'MMO',
+          value: 'MMO',
+        },
+        {
+          name: 'MMORPG',
+          value: 'MMORPG',
+        },
+        {
+          name: 'Shooter',
+          value: 'Shooter',
+        },
+        {
+          name: 'Strategy',
+          value: 'Strategy',
+        },
+        {
+          name: 'Moba',
+          value: 'Moba',
         },
       ],
     },
@@ -36,8 +56,20 @@ export class FiltersService {
       name: 'Sort By',
       options: [
         {
-          name: 'Windwos (PC)',
-          value: 'Windwos (PC)',
+          name: 'Relevance',
+          value: 'Relevance',
+        },
+        {
+          name: 'Popularity',
+          value: 'Popularity',
+        },
+        {
+          name: 'Release Date',
+          value: 'Release Date',
+        },
+        {
+          name: 'Alphabetical',
+          value: 'Alphabetical',
         },
       ],
     },

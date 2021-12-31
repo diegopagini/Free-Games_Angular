@@ -9,6 +9,12 @@
   max-width: 1440px;
   padding-bottom: 0.5rem;
   padding-top: 2rem;
+
+  @media (max-width: 991px) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2rem;
+  }
 }
 
 .game-list {

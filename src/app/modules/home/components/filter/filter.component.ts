@@ -8,4 +8,9 @@ import { Filter } from '../../models/filter.interface';
 })
 export class FilterComponent {
   @Input() filter: Filter;
+
+  onHandleSelect(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+  }
 }
