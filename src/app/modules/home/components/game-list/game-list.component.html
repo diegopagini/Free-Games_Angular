@@ -1,6 +1,10 @@
 <ng-container *ngIf="gameList$ | async as games">
   <section class="filters">
-    <app-filter *ngFor="let filter of filters" [filter]="filter"></app-filter>
+    <app-filter
+      *ngFor="let filter of filters"
+      [filter]="filter"
+      (filterEmitter)="handleFilterEmitter($event)"
+    ></app-filter>
   </section>
 
   <section class="game-list">

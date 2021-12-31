@@ -1,7 +1,12 @@
 <div class="filter" *ngIf="filter">
   <label for="flter">{{ filter.name }}:</label>
-  <select (change)="onHandleSelect($event)" name="flter" id="filter">
-    <option *ngFor="let option of filter.options" [value]="option.name">
+  <select
+    [(ngModel)]="value"
+    (ngModelChange)="onHandleSelect($event)"
+    name="flter"
+    id="filter"
+  >
+    <option *ngFor="let option of filter.options" [ngValue]="option">
       {{ option.name }}
     </option>
   </select>
