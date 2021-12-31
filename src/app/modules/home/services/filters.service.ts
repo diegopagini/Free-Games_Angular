@@ -12,17 +12,17 @@ export class FiltersService {
       options: [
         {
           name: 'All Platforms',
-          value: 'All Platforms',
+          category: 'Platform',
           type: 'filter',
         },
         {
-          name: 'Windwos (PC)',
-          value: 'Windwos (PC)',
+          name: 'PC (Windows)',
+          category: 'Platform',
           type: 'filter',
         },
         {
-          name: 'Browser (WEB)',
-          value: 'Browser (WEB)',
+          name: 'Web Browser',
+          category: 'Platform',
           type: 'filter',
         },
       ],
@@ -32,32 +32,32 @@ export class FiltersService {
       options: [
         {
           name: 'All Genres',
-          value: 'All Genres',
+          category: 'Genre/Tag',
           type: 'filter',
         },
         {
           name: 'MMO',
-          value: 'MMO',
+          category: 'Genre/Tag',
           type: 'filter',
         },
         {
           name: 'MMORPG',
-          value: 'MMORPG',
+          category: 'Genre/Tag',
           type: 'filter',
         },
         {
           name: 'Shooter',
-          value: 'Shooter',
+          category: 'Genre/Tag',
           type: 'filter',
         },
         {
           name: 'Strategy',
-          value: 'Strategy',
+          category: 'Genre/Tag',
           type: 'filter',
         },
         {
           name: 'Moba',
-          value: 'Moba',
+          category: 'Genre/Tag',
           type: 'filter',
         },
       ],
@@ -67,22 +67,22 @@ export class FiltersService {
       options: [
         {
           name: 'Relevance',
-          value: 'Relevance',
+          category: 'Sort',
           type: 'sort',
         },
         {
           name: 'Popularity',
-          value: 'Popularity',
+          category: 'Sort',
           type: 'sort',
         },
         {
           name: 'Release Date',
-          value: 'Release Date',
+          category: 'Sort',
           type: 'sort',
         },
         {
           name: 'Alphabetical',
-          value: 'Alphabetical',
+          category: 'Sort',
           type: 'sort',
         },
       ],

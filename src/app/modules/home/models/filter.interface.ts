@@ -5,6 +5,6 @@ export interface Filter {
 
 export interface Option {
   name: string;
-  value: string;
+  category: string;
   type: string;
 }
