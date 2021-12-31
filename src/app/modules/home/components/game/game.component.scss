@@ -43,4 +43,9 @@
 
 .info {
   padding: 0.5rem;
+  min-width: 381px;
+
+  @media (max-width: 991px) {
+    min-width: unset;
+  }
 }

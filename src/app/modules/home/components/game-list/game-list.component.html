@@ -1,4 +1,8 @@
 <ng-container *ngIf="gameList$ | async as games">
+  <section class="filters">
+    <app-filter *ngFor="let filter of filters" [filter]="filter"></app-filter>
+  </section>
+
   <section class="game-list">
     <app-game *ngFor="let game of games" [game]="game"></app-game>
   </section>

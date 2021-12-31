@@ -1,0 +1,8 @@
+<div class="filter" *ngIf="filter">
+  <label for="flter">{{ filter.name }}:</label>
+  <select name="flter" id="filter">
+    <option *ngFor="let option of filter.options" [value]="option.name">
+      {{ option.name }}
+    </option>
+  </select>
+</div>

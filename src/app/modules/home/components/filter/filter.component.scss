@@ -1,0 +1,25 @@
+@import "../../../../styles/base";
+
+.filter {
+  label {
+    color: $color-primary;
+    font-size: 1.5rem;
+    padding-right: 0.5rem;
+  }
+
+  select {
+    background-color: $color-primary;
+    border-radius: 6px;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  option {
+    color: $color-dark;
+    padding: 0.25rem;
+  }
+}
