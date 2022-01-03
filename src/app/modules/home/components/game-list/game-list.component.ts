@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { Game } from 'src/app/core/models/game.model';
 import { StoreService } from 'src/app/core/services/store.service';
 import { selectGames } from 'src/app/core/store/selectors/api.selector';
-import { Filter, Option } from '../../models/filter.interface';
+import { Filter } from '../../models/filter.interface';
+import { GameForm } from '../../models/form.interface';
 import { FiltersService } from '../../services/filters.service';
 
 @Component({
@@ -27,7 +28,7 @@ export class GameListComponent implements OnInit {
     this.filters = this.filtersService.getFilters();
   }
 
-  handleFilterEmitter(filter: Option): void {
+  handleFilterEmitter(filter: GameForm): void {
     this.storeService.dispatchFilterAction(filter);
   }
 }

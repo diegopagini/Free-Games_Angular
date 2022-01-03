@@ -6,7 +6,12 @@ import {
   loadGamesFail,
   loadGamesSuccess,
 } from '../actions/api.actions';
-import { filterAll, filterGames } from '../actions/filter.actions';
+import {
+  filterGames,
+  filterGenres,
+  filterPlatforms,
+  noFilter,
+} from '../actions/filter.actions';
 
 export const initialState: InitialState = {
   unfilteredGames: [],
@@ -31,29 +36,34 @@ export const apiReducer = createReducer(
     ...state,
     loading: false,
   })),
-  on(filterGames, (state, action) => {
-    if (action.payload.category === 'Platform') {
-      return {
-        ...state,
-        games: [
-          ...state.unfilteredGames.filter(
-            (game: Game) => game.platform === action.payload.name
-          ),
-        ],
-      };
-    } else {
-      return {
-        ...state,
-        games: [
-          ...state.unfilteredGames.filter(
-            (game: Game) => game.genre === action.payload.name
-          ),
-        ],
-      };
-    }
-  }),
-  on(filterAll, (state, reduer) => ({
+  on(noFilter, (state, action) => ({
     ...state,
     games: [...state.unfilteredGames],
+  })),
+  on(filterGenres, (state, action) => ({
+    ...state,
+    games: [
+      ...state.unfilteredGames.filter(
+        (game: Game) => game.genre === action.payload.genres
+      ),
+    ],
+  })),
+  on(filterPlatforms, (state, action) => ({
+    ...state,
+    games: [
+      ...state.unfilteredGames.filter(
+        (game: Game) => game.platform === action.payload.platform
+      ),
+    ],
+  })),
+  on(filterGames, (state, action) => ({
+    ...state,
+    games: [
+      ...state.unfilteredGames.filter(
+        (game: Game) =>
+          game.platform === action.payload.platform &&
+          game.genre === action.payload.genres
+      ),
+    ],
   }))
 );

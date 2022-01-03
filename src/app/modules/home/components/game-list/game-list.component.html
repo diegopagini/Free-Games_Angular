@@ -1,13 +1,20 @@
 <ng-container *ngIf="gameList$ | async as games">
   <section class="filters">
     <app-filter
-      *ngFor="let filter of filters"
-      [filter]="filter"
+      [filters]="filters"
       (filterEmitter)="handleFilterEmitter($event)"
     ></app-filter>
   </section>
 
-  <section class="game-list">
+  <section class="game-list" *ngIf="games.length > 0; else noGames">
     <app-game *ngFor="let game of games" [game]="game"></app-game>
   </section>
 </ng-container>
+
+<ng-template #noGames>
+  <section class="game-list">
+    <p>
+      <em> There is no game with that filters...</em>
+    </p>
+  </section>
+</ng-template>

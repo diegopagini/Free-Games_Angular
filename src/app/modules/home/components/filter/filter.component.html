@@ -1,13 +1,45 @@
-<div class="filter" *ngIf="filter">
-  <label for="flter">{{ filter.name }}:</label>
-  <select
-    [(ngModel)]="value"
-    (ngModelChange)="onHandleSelect($event)"
-    name="flter"
-    id="filter"
-  >
-    <option *ngFor="let option of filter.options" [ngValue]="option">
-      {{ option.name }}
-    </option>
-  </select>
-</div>
+<form class="filters" *ngIf="filters" [formGroup]="gamesForm">
+  <ng-container *ngFor="let filter of filters">
+    <div class="filter" *ngIf="filter.name === 'Platform'">
+      <label for="platform">{{ filter.name }}</label>
+      <select
+        (ngModelChange)="onHandleSelect($event)"
+        name="platform"
+        id="platform"
+        formControlName="platform"
+      >
+        <option *ngFor="let option of filter.options" [value]="option.name">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="filter" *ngIf="filter.name === 'Genre/Tag'">
+      <label for="genres">{{ filter.name }}</label>
+      <select
+        (ngModelChange)="onHandleSelect($event)"
+        name="genres"
+        id="genres"
+        formControlName="genres"
+      >
+        <option *ngFor="let option of filter.options" [value]="option.name">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="filter" *ngIf="filter.name === 'Sort By'">
+      <label for="sort">{{ filter.name }}</label>
+      <select
+        (ngModelChange)="onHandleSelect($event)"
+        name="sort"
+        id="sort"
+        formControlName="sort"
+      >
+        <option *ngFor="let option of filter.options" [value]="option.name">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+  </ng-container>
+</form>

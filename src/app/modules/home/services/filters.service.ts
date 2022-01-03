@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { StoreService } from 'src/app/core/services/store.service';
 import { Filter } from '../models/filter.interface';
 
 @Injectable({
@@ -88,8 +87,6 @@ export class FiltersService {
       ],
     },
   ];
-
-  constructor(private storeService: StoreService) {}
 
   getFilters(): Filter[] {
     return this.filters;

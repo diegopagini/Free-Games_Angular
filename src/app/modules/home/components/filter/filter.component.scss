@@ -1,33 +1,48 @@
 @import "../../../../styles/base";
 
-.filter {
-  label {
-    color: $color-primary;
-    font-size: 1.5rem;
-    padding-right: 0.5rem;
+.filters {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 
-    @media (max-width: 991px) {
+  @media (max-width: 991px) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .filter {
+    margin: 0 2rem;
+
+    label {
+      color: $color-primary;
+      font-size: 1.5rem;
+      padding-right: 0.5rem;
+
+      @media (max-width: 991px) {
+        font-size: 1.25rem;
+      }
+    }
+
+    select {
+      background-color: $color-primary;
+      border-radius: 6px;
       font-size: 1.25rem;
-    }
-  }
+      padding: 0.25rem;
 
-  select {
-    background-color: $color-primary;
-    border-radius: 6px;
-    font-size: 1.25rem;
-    padding: 0.25rem;
+      @media (max-width: 991px) {
+        font-size: 1rem;
+      }
 
-    @media (max-width: 991px) {
-      font-size: 1rem;
+      &:focus {
+        outline: none;
+      }
     }
 
-    &:focus {
-      outline: none;
+    option {
+      color: $color-dark;
+      padding: 0.25rem;
     }
-  }
-
-  option {
-    color: $color-dark;
-    padding: 0.25rem;
   }
 }
