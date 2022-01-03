@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Game } from 'src/app/core/models/game.model';
 import { Filter } from '../models/filter.interface';
 
 @Injectable({
@@ -90,5 +93,43 @@ export class FiltersService {
 
   getFilters(): Filter[] {
     return this.filters;
+  }
+
+  sortGames(game$: Observable<Game[]>, sort: string): Observable<Game[]> {
+    switch (sort) {
+      case 'Alphabetical':
+        sort = 'title';
+        break;
+
+      case 'Release Date':
+        sort = 'release_date';
+        break;
+
+      case 'Relevance':
+        sort = 'id';
+        break;
+
+      case 'Popularity':
+        sort = 'short_description';
+        break;
+
+      default:
+        sort = 'id';
+        break;
+    }
+
+    return game$.pipe(
+      map((games: Game[]) =>
+        games.slice().sort((a: Game | any, b: Game | any) => {
+          if (a[sort] > b[sort]) {
+            return 1;
+          }
+          if (a[sort] < b[sort]) {
+            return -1;
+          }
+          return 0;
+        })
+      )
+    );
   }
 }

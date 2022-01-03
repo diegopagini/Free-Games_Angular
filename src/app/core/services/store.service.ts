@@ -20,6 +20,8 @@ export class StoreService {
   }
 
   dispatchFilterAction(filter: GameForm): void {
+    filter.sort = filter.sort.toLowerCase().split(' ').join('_');
+
     if (filter.platform === 'All Platforms' && filter.genres === 'All Genres') {
       this.store.dispatch(noFilter());
     } else if (filter.platform === 'All Platforms') {

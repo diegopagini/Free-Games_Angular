@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { GameForm } from 'src/app/modules/home/models/form.interface';
 import { Game } from '../../models/game.model';
 import { InitialState } from '../../models/state.model';
 import {
@@ -36,7 +37,7 @@ export const apiReducer = createReducer(
     ...state,
     loading: false,
   })),
-  on(noFilter, (state, action) => ({
+  on(noFilter, (state, action: any) => ({
     ...state,
     games: [...state.unfilteredGames],
   })),

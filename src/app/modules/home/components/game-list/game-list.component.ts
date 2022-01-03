@@ -29,6 +29,8 @@ export class GameListComponent implements OnInit {
   }
 
   handleFilterEmitter(filter: GameForm): void {
+    this.gameList$ = this.filtersService.sortGames(this.gameList$, filter.sort);
+
     this.storeService.dispatchFilterAction(filter);
   }
 }

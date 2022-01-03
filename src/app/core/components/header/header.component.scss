@@ -4,9 +4,24 @@
 .header {
   background-color: $color-black;
   color: $color-white;
+
   @include center;
 
   h2 {
     text-transform: uppercase;
+  }
+
+  div {
+    background-color: $color-white;
+    border-radius: 50%;
+    color: $color-black;
+    min-width: 30px;
+    padding: 0.5rem;
+    position: fixed;
+    right: 2rem;
+    text-align: center;
+    top: 2rem;
+
+    @include center;
   }
 }
