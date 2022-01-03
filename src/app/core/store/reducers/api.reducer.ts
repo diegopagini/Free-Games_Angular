@@ -6,7 +6,7 @@ import {
   loadGamesFail,
   loadGamesSuccess,
 } from '../actions/api.actions';
-import { filterGames } from '../actions/filter.actions';
+import { filterAll, filterGames } from '../actions/filter.actions';
 
 export const initialState: InitialState = {
   unfilteredGames: [],
@@ -51,5 +51,9 @@ export const apiReducer = createReducer(
         ],
       };
     }
-  })
+  }),
+  on(filterAll, (state, reduer) => ({
+    ...state,
+    games: [...state.unfilteredGames],
+  }))
 );

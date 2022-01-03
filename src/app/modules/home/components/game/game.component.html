@@ -15,6 +15,10 @@
 
 <ng-template #back>
   <mat-card class="game info rotate-in-center">
+    <mat-card-header>
+      <mat-card-title>{{ game.title }}</mat-card-title>
+    </mat-card-header>
+
     <mat-card-content (click)="front = !front" class="game-back">
       <p><strong>short description:</strong> {{ game.short_description }}</p>
       <p><strong>genre:</strong> {{ game.genre }}</p>
@@ -24,9 +28,6 @@
       <p><strong>release date:</strong> {{ game.release_date | date }}</p>
     </mat-card-content>
     <div class="container">
-      <mat-card-header>
-        <mat-card-title>{{ game.title }}</mat-card-title>
-      </mat-card-header>
       <mat-card-footer>
         <a
           *ngIf="game.freetogame_profile_url"

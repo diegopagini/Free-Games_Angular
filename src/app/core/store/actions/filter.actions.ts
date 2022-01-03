@@ -6,6 +6,11 @@ export const filterGames = createAction(
   props<{ payload: Option }>()
 );
 
+export const filterAll = createAction(
+  '[Home Page] See All Games',
+  props<{ payload: Option }>()
+);
+
 export const sortGames = createAction(
   '[Home Page] Sort Games',
   props<{ payload: Option }>()
